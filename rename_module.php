@@ -1,5 +1,4 @@
-<?php
-	
+<?php	
 	//disabling error reporting
     error_reporting(E_ERROR | E_PARSE);
 
@@ -39,45 +38,6 @@
    			$value = "0".($a-1);
    		} 
 
-		//check another folder exists with same name
-		/*if("uploads/".$presentation_name."/".$slides[$a]."/".$slides[$a] != false) {
-			
-			echo "child directory is there!";
-			
-			//changing the files location to parent folder
-			if (!function_exists('rec_func'))   {
-			    function rec_func($src, $dst) { 
-				    //if($dir != false) {
-				    	$dir = opendir($src); 
-					    @mkdir($dst); 
-					    foreach (scandir($src) as $file) { 
-					        if (( $file != '.' ) && ( $file != '..' )) { 
-					            if ( is_dir($src . '/' . $file) ) 
-					            { 
-					                rec_func($src . '/' . $file, $dst . '/' . $file); 
-					            } 
-					            else { 
-					                copy($src . '/' . $file, $dst . '/' . $file); 
-					            } 
-					        } 
-					    } 
-					    closedir($dir);
-				   // }
-				}
-		    }
-
-			$src = "uploads/".$presentation_name."/".$slides[$a]."/".$slides[$a];
-			$dst = "uploads/".$presentation_name."/".$slides[$a];
-			rec_func($src, $dst);
-
-			//deleting child folder
-			deleteDirectory("uploads/".$presentation_name."/".$slides[$a]."/".$slides[$a]);
-
-		}  else {
-			echo "child dierctory is not there!";
-		}*/
- 		
-
  		/*renaming internal files and folders*/
        	foreach(glob("uploads/".$presentation_name."/".$slides[$a]."/*jpg") as $jpg_file) {
 			if (strpos($jpg_file,'thumb')) {
@@ -113,22 +73,14 @@
         rename( "uploads/".$presentation_name.'/'.$slides[$a], "uploads/".$presentation_name.'/'.$new_name.$value); 
  }  
        
-	//header('Location: ' . $_SERVER['HTTP_REFERER']);
-	 if (!empty($_SERVER['HTTP_REFERER'])) {
-	    header("Location: ".$_SERVER['HTTP_REFERER']);
-	 } else {
-	   echo "No referrer.";
-	 }
+	header('Location: ' . $_SERVER['HTTP_REFERER']);
  } else {
- 	//header('Location: ' . $_SERVER['HTTP_REFERER']);
- 	if (!empty($_SERVER['HTTP_REFERER'])) {
-	    header("Location: ".$_SERVER['HTTP_REFERER']);
-	 } else {
-	   echo "No referrer.";
-	 }
+ 	header('Location: ' . $_SERVER['HTTP_REFERER']);
  }
  
 ?>
+
+
 
 
 

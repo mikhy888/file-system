@@ -9,39 +9,69 @@
 
  <h3>Presentation: <i><?php echo $presentation_name; ?></i></h3>
 
-<a class="num" href="javascript:;">Numeric</a> | <a class="cus" href="javascript:;">Custom</a>
 
-<form action="rename_module.php" style="display: none;" class="num_input">
-    <input type="hidden" name="current_presentation" value="<?php echo $presentation_name; ?>">
-    <input type="text" name="rename_module" placeholder="Enter name pattern here" style="width: 50%">
-    <input type="submit" value="Rename">
-</form>
+<div class="naming-option">
+    <a class="num" href="javascript:;">Numeric</a> <a class="cus" href="javascript:;">Custom</a> <a class="replace" href="javascript:;">Find & Replace</a>
+</div>
 
-<hr>
+<br>
+
+<div class="num_input" style="display: none;">
+    <form action="rename_module.php">
+        <input type="hidden" name="current_presentation" value="<?php echo $presentation_name; ?>">
+        <input type="text" name="rename_module" placeholder="Enter name pattern here" style="width: 50%">
+        <input type="submit" value="Rename">
+    </form>
+</div>
+
+<div class="replace_input" style="display: none;">   
+    <form action="find-replace.php">
+        <input type="hidden" name="current_presentation" value="<?php echo $presentation_name; ?>">
+        <input type="text" name="find" placeholder="Find" style="width: 40%;"> | 
+        <input type="text" name="replace" placeholder="Replace with" style="width: 40%;">
+        <input type="submit" value="Replace">
+    </form>
+</div>  
+
 <h3>Slides:</h3>
  <?php 
  $slides = scandir("uploads/".$presentation_name);
  for ($a = 2; $a < count($slides); $a++) { ?>
     <p data-slide='<?php echo $slides[$a]; ?>' class="slide_name">
-        <div><?php echo $slides[$a]; ?>  <input type="text" class="cus_input" style="width: 50%;display: none;">  </div>
+        <div>
+            <?php echo $slides[$a]; ?>  
+            <form action="custom_name.php" class="cus_input" style="display: none;">
+                <input type="hidden" name="current_presentation" value="<?php echo $presentation_name; ?>">
+                <input type="hidden" name="current_slide" value="<?php echo $slides[$a]; ?>">
+                <input type="text" placeholder="Enter new name here!" style="width: 50%;" name="new_name">
+                <input type="submit" value="Rename">
+            </form>
+        </div>
     </p>
 <?php }  ?>
 
 
-<br><hr><br>
-
 <script src="jquery.js"></script>
 <script>
-   // $(document).ready(function(){
+   $(document).ready(function(){
+        $(".naming-option a").click(function(){
+            $(".naming-option a").removeClass("active");
+            $(this).addClass("active");
+        });
+
         $(".num").on('click', function(){
-            $(".cus_input").hide();
+            $(".cus_input, .replace_input").hide();
             $(".num_input").show();
         });
         $(".cus").on('click', function(){
+            $(".num_input, .replace_input").hide();
             $(".cus_input").show();
-            $(".num_input").hide();
         });
-    //});
+        $(".replace").on('click', function(){
+            $(".cus_input, .num_input").hide();
+            $(".replace_input").show();
+        });
+    });
 </script>
 
 

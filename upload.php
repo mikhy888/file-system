@@ -144,7 +144,8 @@ if(isset($_FILES['file'])) {
      echo "Same presentation name already exists.";
      //header("Location: index.php?result=failed");
      if (!empty($_SERVER['HTTP_REFERER'])) {
-        header("Location: ".$_SERVER['HTTP_REFERER']);
+        //header("Location: ".$_SERVER['HTTP_REFERER']);
+        header("Location: index.php?result=failed");
      } else {
        echo "No referrer.";
      }
