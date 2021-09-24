@@ -36,7 +36,12 @@
  for ($a = 2; $a < count($slides); $a++) {  
 
  		if($init_num == true) {
- 			$value = $init_num++;
+ 			$for_value = $init_num++;
+ 			if( $for_value >= 10 ) {
+ 				$value = $for_value;
+ 			} else {
+ 				$value = "0".$for_value;
+ 			}
  		} else {
  			if(($a) > 10) {
 	   			$value = $a -1;
@@ -53,7 +58,6 @@
 				rename($jpg_file, "uploads/".$presentation_name."/".$slides[$a]."/".$new_name.$value."-full.jpg");
 			}
 		} 
-
 		
 		 foreach(glob("uploads/".$presentation_name."/".$slides[$a]."/*jpeg") as $jpeg_file) {
 		    if (strpos($jpg_file,'full')) {
@@ -63,7 +67,6 @@
 			}
 		} 
 
-		
 		foreach(glob("uploads/".$presentation_name."/".$slides[$a]."/*png") as $png_file) {
 		    if (strpos($jpg_file,'full')) {
 				rename($jpg_file, "uploads/".$presentation_name."/".$slides[$a]."/".$new_name.$value."-full.png");
@@ -71,7 +74,6 @@
 				rename($jpg_file, "uploads/".$presentation_name."/".$slides[$a]."/".$new_name.$value."-thumb.png");
 			}
 		} 
-    
 		
         foreach(glob("uploads/".$presentation_name."/".$slides[$a]."/*html") as $file) {
 		    rename($file, "uploads/".$presentation_name."/".$slides[$a]."/".$new_name.$value.".html");

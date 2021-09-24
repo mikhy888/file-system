@@ -155,6 +155,5 @@ if(isset($_FILES['file'])) {
 //header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 // Redirecting back
-//header("Location: " . "index.php"); https://electrictoolbox.com/php-http-referer-variable/
-//https://stackoverflow.com/questions/16841591/why-is-the-http-referer-not-showing
+//header("Location: " . "index.php"); 
 
