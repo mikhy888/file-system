@@ -5,6 +5,7 @@
 	$presentation_name = $_GET["current_presentation"];
 	$new_name = $_GET["rename_module"];
 	$init_num = $_GET["init_num"];
+
  ?>
 
  <?php
@@ -13,6 +14,7 @@
  	$slides = scandir("uploads/".$presentation_name);
 
  $value = "";
+
  function deleteDirectory($dir) {
     if (!file_exists($dir)) {
         return true;
@@ -33,12 +35,16 @@
 
  for ($a = 2; $a < count($slides); $a++) {  
 
- 		if(($a) > 10) {
-   			$value = $a -1;
-   		} else {
-   			$value = "0".($a-1);
-   		} 
-
+ 		if($init_num == true) {
+ 			$value = $init_num++;
+ 		} else {
+ 			if(($a) > 10) {
+	   			$value = $a -1;
+	   		} else {
+	   			$value = "0".($a-1);
+	   		} 	
+ 		}
+ 		
  		/*renaming internal files and folders*/
        	foreach(glob("uploads/".$presentation_name."/".$slides[$a]."/*jpg") as $jpg_file) {
 			if (strpos($jpg_file,'thumb')) {

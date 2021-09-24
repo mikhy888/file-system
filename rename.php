@@ -19,8 +19,8 @@
 <div class="num_input" style="display: none;">
     <form action="rename_module.php">
         <input type="hidden" name="current_presentation" value="<?php echo $presentation_name; ?>">
-        <input type="number" name="init_num" placeholder="Enter init number" style="width: 10%">
-        <input type="text" name="rename_module" placeholder="Enter name pattern here" style="width: 50%">
+        <input type="text" name="rename_module" placeholder="Enter name pattern here" style="width: 30%"> | 
+        <input type="number" name="init_num" placeholder="Enter init number" style="width: 10%"> |
         <input type="submit" value="Rename">
     </form>
 </div>
@@ -29,7 +29,7 @@
     <form action="find-replace.php">
         <input type="hidden" name="current_presentation" value="<?php echo $presentation_name; ?>">
         <input type="text" name="find" placeholder="Find" style="width: 40%;"> | 
-        <input type="text" name="replace" placeholder="Replace with" style="width: 40%;">
+        <input type="text" name="replace" placeholder="Replace with" style="width: 40%;"> |
         <input type="submit" value="Replace">
     </form>
 </div>  
@@ -44,7 +44,7 @@
             <form action="custom_name.php" class="cus_input" style="display: none;">
                 <input type="hidden" name="current_presentation" value="<?php echo $presentation_name; ?>">
                 <input type="hidden" name="current_slide" value="<?php echo $slides[$a]; ?>">
-                <input type="text" placeholder="Enter new name here!" style="width: 50%;" name="new_name">
+                <input type="text" placeholder="Enter new name here!" style="width: 50%;" name="new_name"> | 
                 <input type="submit" value="Rename">
             </form>
         </div>
