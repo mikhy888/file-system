@@ -5,7 +5,7 @@
  ?>
 
 
- <h3><a href="index.php">Back to home</a></h3>
+ <a href="index.php">Back</a>
 
  <h3>Presentation: <i><?php echo $presentation_name; ?></i></h3>
 
@@ -19,6 +19,7 @@
 <div class="num_input" style="display: none;">
     <form action="rename_module.php">
         <input type="hidden" name="current_presentation" value="<?php echo $presentation_name; ?>">
+        <input type="number" name="init_num" placeholder="Enter init number" style="width: 10%">
         <input type="text" name="rename_module" placeholder="Enter name pattern here" style="width: 50%">
         <input type="submit" value="Rename">
     </form>

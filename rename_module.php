@@ -4,6 +4,7 @@
 
 	$presentation_name = $_GET["current_presentation"];
 	$new_name = $_GET["rename_module"];
+	$init_num = $_GET["init_num"];
  ?>
 
  <?php
