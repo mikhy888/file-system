@@ -13,6 +13,9 @@
 <hr>
 
 <?php
+if (!file_exists("uploads")) {
+    mkdir('uploads');
+}
 
 $files = scandir("uploads"); ?>
 <h3>Presentations:</h3>
