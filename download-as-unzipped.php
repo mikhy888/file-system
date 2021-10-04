@@ -71,10 +71,10 @@ for ($a = 2; $a < count($s_files); $a++) {
 
     if( $s_files[$a] != $pres_name) {
       mkdir('uploads/'.$pres_name.'/'.$pres_name.'/'.$s_files[$a]);
-      mkdir('uploads/'.$pres_name.'/'.$pres_name.'/'.$s_files[$a].'/'.$s_files[$a]);
+      //mkdir('uploads/'.$pres_name.'/'.$pres_name.'/'.$s_files[$a].'/'.$s_files[$a]);
 
       
-      custom_copy('uploads/'.$pres_name.'/'.$s_files[$a], 'uploads/'.$pres_name.'/'.$pres_name.'/'.$s_files[$a].'/'.$s_files[$a]);
+      custom_copy('uploads/'.$pres_name.'/'.$s_files[$a], 'uploads/'.$pres_name.'/'.$pres_name.'/'.$s_files[$a]);
     }
 
     /*$filename_n = 'uploads/'.$pres_name.'/'.$pres_name.'/'.$s_files[$a].'.zip';
