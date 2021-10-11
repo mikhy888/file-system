@@ -64,10 +64,12 @@
             $(".cus_input, .replace_input").hide();
             $(".num_input").show();
         });
+
         $(".cus").on('click', function(){
             $(".num_input, .replace_input").hide();
             $(".cus_input").show();
         });
+        
         $(".replace").on('click', function(){
             $(".cus_input, .num_input").hide();
             $(".replace_input").show();

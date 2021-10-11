@@ -75,6 +75,12 @@ for ($a = 2; $a < count($s_files); $a++) {
 
       
       custom_copy('uploads/'.$pres_name.'/'.$s_files[$a], 'uploads/'.$pres_name.'/'.$pres_name.'/'.$s_files[$a].'/'.$s_files[$a]);
+
+      //adding dummy files
+      file_put_contents('uploads/'.$pres_name.'/'.$pres_name.'/'.$s_files[$a].'/'.$s_files[$a].'/scripts/file.txt','content');
+      file_put_contents('uploads/'.$pres_name.'/'.$pres_name.'/'.$s_files[$a].'/'.$s_files[$a].'/styles/file.txt','content');
+      file_put_contents('uploads/'.$pres_name.'/'.$pres_name.'/'.$s_files[$a].'/'.$s_files[$a].'/images/file.txt','content');
+      
     }
 
     $filename_n = 'uploads/'.$pres_name.'/'.$pres_name.'/'.$s_files[$a].'.zip';
