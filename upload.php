@@ -42,6 +42,7 @@ if(isset($_FILES['file'])) {
 
     //extract the presentation
     if ($res === TRUE) {
+
       $zip->extractTo('uploads/'.$foldername_new);
 
 
@@ -53,7 +54,7 @@ if(isset($_FILES['file'])) {
       //changing the files location to parent folder
       if (!function_exists('rec_func'))   {
           function rec_func($src, $dst) { 
-            $dir = opendir($src); 
+            $dir = opendir($src);
             @mkdir($dst); 
             foreach (scandir($src) as $file) { 
                 if (( $file != '.' ) && ( $file != '..' )) { 
@@ -65,8 +66,11 @@ if(isset($_FILES['file'])) {
                         copy($src . '/' . $file, $dst . '/' . $file); 
                     } 
                 } 
-            } 
+            }
+            if (is_dir($dir)){
+
             closedir($dir);
+          }
         }
         }
 
@@ -93,7 +97,7 @@ if(isset($_FILES['file'])) {
          }
       }
 
-      $zip->close();
+      // $zip->close();
       unlink("uploads/".$foldername);
       echo 'File extraction successfull!';
     } else {
@@ -121,7 +125,9 @@ if(isset($_FILES['file'])) {
                             } 
                         } 
                     } 
+                    if (is_dir($dir1)){
                     closedir($dir1);
+                  }
                 }
             }
 

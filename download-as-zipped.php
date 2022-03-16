@@ -1,6 +1,10 @@
 <?php 
 
+session_start();
+
 $pres_name = $_GET["pres_name"]; 
+$_SESSION["history_array"] = $pres_name;
+
 $dir = "uploads/".$pres_name;
 
 /*creating parent dir for each keymessage*/

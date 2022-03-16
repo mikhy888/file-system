@@ -1,9 +1,7 @@
 <title>Renaming module</title>
 
-<style>
-    body {text-align: center;}
-	.naming-option {border-bottom: 1px solid #999;padding-left: 10px;}
-	.naming-option a {display: inline-block;padding: 2px 10px;border: 1px solid #999;border-bottom: 1px solid white;text-decoration: none;}
-	.naming-option a.active {position: relative;bottom: -1px;}
-	input[type="submit"], button {cursor: pointer;}
-</style>
+<link rel="stylesheet" href="./assets/css/custom.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./assets/js/custom.js"></script>
